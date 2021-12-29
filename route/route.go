@@ -7,4 +7,5 @@ import (
 
 func init() {
 	web.Router("/", &controller.HelloController{})
+	web.Router("/event/collect", controller.NewCollectEventController())
 }
