@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	_ "github.com/NbNative/nbnative-server/route"
+	_ "github.com/NbNative/nbnative-server/util"
+	"github.com/beego/beego/v2/server/web"
+)
 
 func main() {
-	fmt.Println("hello word")
+	web.Run()
 }
