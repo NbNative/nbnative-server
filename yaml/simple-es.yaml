@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trace-es
+  labels:
+    app: es
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: es
+  template:
+    metadata:
+      labels:
+        app: es
+    spec:
+      containers:
+      - name: elasticsearch
+        image: elasticsearch:7.10.1
+        env:
+          - name: discovery.type
+            value: "single-node"
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+
